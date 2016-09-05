@@ -1,0 +1,1784 @@
+
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class=" no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class=" no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class=" no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class=" no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class=" no-js" xmlns:fb="http://ogp.me/ns/fb#"> <!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>Given a undirected graph with  | CareerCup </title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<script src="/js/ccscript.js" type="text/javascript"></script> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link title="RSS" href="http://feeds.feedburner.com/Careercup" type="application/rss+xml" rel="alternate" /> 
+
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="stylesheet" href="/stylesheets/style.css?v=2">
+	<link rel="stylesheet" href="/stylesheets/tinydropdown.css" type="text/css" />
+	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="/scripts/jquery-1.3.2.js"></script>
+	<script type="text/javascript">google.load('jquery', '1.7.1');</script>
+
+	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css">      
+	<script type="text/javascript" src="/js/jquery.regValidator.js"></script>
+	<script type="text/javascript" src="/js/regex.js"></script>      
+	<script type="text/javascript" src="/js/jquery.cookie.js"></script>         
+	<script type="text/javascript" src="/js/userinfo.js"></script>
+	<script src="/js/jquery.timeago.js" type="text/javascript"></script>
+
+	<script type="text/javascript" src="/scripts/tinydropdown.js"></script>
+	
+	<link href="/stylesheets/prism.css" rel="stylesheet" />
+
+	
+<meta property='st:type' content='question' />
+<meta property='st:image' content='http://www.careercup.com/attributeimages/google-interview-questions.png' />
+<meta property="og:site_name" content="CareerCup.com"/> 
+<meta property="og:image" content="http://www.careercup.com/images/facebook_share_image.jpg"/> 
+<meta property="og:title" content="Google Interview Question  for Software Engineer / Developers"/> 
+<meta property="og:description" content="Given a undirected graph with weights, return the sum of the weight of each path between two nodes (shortest path between two vertices). Assume there are no cycles.
+
+Example:
+{{{
+Input:
+       A
+       | 1
+       B
+   2 /   \ 3
+    C     D
+    
+Output:
+18
+since 
+A to B has weight 1
+A to C has weight 3
+A to D has weight 4
+B to C has weight 2
+B to D has weight 3
+C to D has weight 5 
+}}}
+
+Edit: Thanks, wangchenClark0512, forgot about C to D
+Edit2: @Lukas, The question is just the sum of the shortest paths between two vertices. Also, all edges are positive.
+Edit3: Assume the graph has no cycles, did not get to the follow-up, but follow-up probably is probably change your algorithm so that is works for cycles"/>
+
+
+<meta property='st:info' content='company_names:Google' />
+<meta property='st:info' content='company_ids:google-interview-questions' />
+
+
+
+<meta property='st:info' content='job_names:Software Engineer / Developer' />
+<meta property='st:info' content='job_ids:software-engineer-developer-interview-questions' />
+
+
+
+<meta property='st:info' content='topic_names:Trees and Graphs' />
+<meta property='st:info' content='topic_ids:trees-and-graphs-interview-questions' />
+
+
+
+<meta property='st:info' content='author_id:5667077504368640' />
+<meta property='st:info' content='author_name:djway' />
+
+
+
+<meta property='st:info' content='country:United States' />
+
+
+
+
+
+<meta property='st:info' content='type:Phone Interview' />
+
+
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=159992514098768";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>	
+	<script>var country_origin = "US"; var _user_id = 5686347301912576; var _url = "https://www.careercup.com/_ah/logout?continue=https://www.google.com/accounts/Logout%3Fcontinue%3Dhttps://appengine.google.com/_ah/logout%253Fcontinue%253Dhttps://www.careercup.com/question%25253Fid%25253D5679897813975040%26service%3Dah"; </script>
+	
+	<header id="page_head">
+		<div class="row" >
+			<div class="column grid_6" style="width: 260px;">
+				<h1 id="logo"><a href="/">CareerCup</a></h1>
+				
+				<div id="notificationCircle" title="New Notifications"><div id="notificationCircleText"><span alt="New Notifications" title="New Notifications"><a href="/notifications"></a></span></div></div>
+				
+			</div>
+			<div class="column grid_6" style="width: 660px;">
+				<ul class="page_nav" id="page_nav">
+					<li><a href="/page" class="page_navlink">Questions</a></li>
+					<li><a href="/forum" class="page_navlink">Forum</a></li>
+					<li><a href="/salary" class="page_navlink">Salaries</a></li>
+					<li><a href="/resume" class="page_navlink">Resume Tips</a></li>
+					<li><a href="http://feeds.feedburner.com/Careercup" class="page_navlink">RSS</a></li>
+					
+					<li><a href="/user?id=5686347301912576" class="page_navlink">duskan  <span id="reputation">&circ;370.0</span> &#x25BC;</a> 
+						<ul>
+							<li><a href="/user?id=5686347301912576">My Account</a></li> 
+							<li><a href="/followed">My Followed Items</a></li>
+							<li><a href="/notifications">Notifications</a></li>
+							<li><a href="/unsubscribe">Subscriptions</a></li>
+							<li><a href="/edituser">Edit Account</a></li>
+							<li><a href="https://www.careercup.com/_ah/logout?continue=https://www.google.com/accounts/Logout%3Fcontinue%3Dhttps://appengine.google.com/_ah/logout%253Fcontinue%253Dhttps://www.careercup.com/question%25253Fid%25253D5679897813975040%26service%3Dah">Sign Out</a></li>
+						</ul>
+					</li>	
+					
+				<form>
+  <input type="text" id="st-search-input" class="st-search-input" style="float: right; top: -20px; position: relative;"/>
+</form>
+<div id="st-results-container"></div>
+<script type="text/javascript">
+  var Swiftype = window.Swiftype || {};
+  (function() {
+    Swiftype.key = 'snLwd21iaMqEyojgVKLs';
+    Swiftype.inputElement = '#st-search-input';
+    Swiftype.resultContainingElement = '#st-results-container';
+    Swiftype.attachElement = '#st-search-input';
+    Swiftype.renderStyle = "overlay";
+
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.src = "//swiftype.com/embed.js";
+    var entry = document.getElementsByTagName('script')[0];
+    entry.parentNode.insertBefore(script, entry);
+  }());
+</script>
+			</div>
+		</div>
+	
+	</header><!-- end page header -->
+	
+	<div id="main">
+		
+		<div class="row">
+			<div class="column grid_9" id="mainpagebody">
+			
+		       
+<h2>
+				Google
+			
+			Interview Question
+			
+				<span class="widgetRightArrow" >
+					for
+				</span>
+				
+			
+		        Software Engineer / Developers
+		    
+	    			</h2>
+<ul id="question_preview">
+		<li class="question"><div class="companyAndVote">
+	<span class="company"><img src="/attributeimages/google-interview-questions.png" title="Google" alt="google-interview-questions" /></span>
+	<div class="votesWrapper votesWrapperQuestion" id="votes5679897813975040">
+		<div class="arrowUpQuestion authorHide5667077504368640" onclick="javascript:vote(1, 5679897813975040, 'question')" id="arrowUp5679897813975040"></div>
+		<div class="arrowUpQuestionDisabled authorShow5667077504368640" style="display: none;"></div>
+		<div class="votesNetQuestion" id="votesNet5679897813975040">1</div>
+		<div class="arrowDownQuestion authorHide5667077504368640" onclick="javascript:vote(-1, 5679897813975040, 'question')"  id="arrowDown5679897813975040"></div>
+		<div class="arrowDownQuestionDisabled authorShow5667077504368640" style="display: none;"></div>
+		<div class="votesCountQuestion" id="votesCount5679897813975040">of <span id="votesCountActual5679897813975040">1</span> vote</div>
+		<div class="clearance"></div>
+	</div>
+</div>
+	<span class="ratingAndFav">
+		<span id="question5679897813975040favorite" class="favorite favoriteQuestion favoriteOff" onclick="javascript:addFavorite(5679897813975040, 'question')" alt="Follow" title="Follow"></span>	
+		<span class="rating"><a href="/question?id=5679897813975040"><span class="commentCount">17</span> <br/>Answers</a></span>
+	</span>
+	<span class="entry">
+		
+		<a href="/question?id=5679897813975040"><p>Given a undirected graph with weights, return the sum of the weight of each path between two nodes (shortest path between two vertices). Assume there are no cycles.
+<br />
+<br />Example:</p><p><code><pre class="language-java">Input:
+       A
+       | 1
+       B
+   2 /   \ 3
+    C     D
+    
+Output:
+18
+since 
+A to B has weight 1
+A to C has weight 3
+A to D has weight 4
+B to C has weight 2
+B to D has weight 3
+C to D has weight 5</pre></code></p><p>Edit: Thanks, wangchenClark0512, forgot about C to D
+<br />Edit2: @Lukas, The question is just the sum of the shortest paths between two vertices. Also, all edges are positive.
+<br />Edit3: Assume the graph has no cycles, did not get to the follow-up, but follow-up probably is probably change your algorithm so that is works for cycles</p></a>
+		<span class="author">
+			- <a href="/user?id=5667077504368640" onmouseover="popup(5667077504368640);">djway</a> <abbr class="timeago" title="2016-08-18T04:05:25.571630Z">August 18, 2016</abbr> in United States  
+			<edit author_id="5667077504368640" href="/add?id=5679897813975040"></edit> | <a href="/reportduplicate?id=5679897813975040">Report Duplicate</a> | <a href="/flagquestion?id=5679897813975040">Flag</a> </span>
+		<br/>
+	</span>
+	<span class="tags">
+	
+		<a href="/page?pid=google-interview-questions">Google</a>
+	
+		<a href="/page?pid=software-engineer-developer-interview-questions">Software Engineer / Developer</a>
+	
+		<a href="/page?pid=trees-and-graphs-interview-questions">Trees and Graphs</a>
+	
+	</span>		
+	<div class="clearance"></div></li>
+</ul>
+<br/>
+<div class="social_share_buttons">
+	
+	<div class="social_share_button subscribe_button">
+	<div class="is_subscribed_items">
+		<div class="subscribe_image subscribe_image_subscribed">&nbsp;</div>
+		<div class="subscribe_text">Email me when people comment.</div>
+	</div>
+	<div class="is_unsubscribed_items">
+		<div class="subscribe_image subscribe_image_unsubscribed">&nbsp;</div>
+		<div class="subscribe_text">Email me when people comment.</div>			
+	</div>
+	<div class="subscribe_loading_items">
+		<div class="subscribe_image subscribe_image_loading">&nbsp;</div>
+		<div class="subscribe_text">Loading...</div>			
+	</div>
+	<div class="subscribe_loading_error">
+		<div class="subscribe_image subscribe_image_error">&nbsp;</div>
+		<div class="subscribe_text">An error occurred in subscribing you.</div>			
+	</div>			
+	<div class="clearance"></div>	
+</div>
+
+	
+	<div class="social_share_button">
+		<fb:like href="http://www.careercup.com/question?id=5679897813975040" send="false" layout="button_count" show_faces="false"></fb:like>
+	</div>	
+	<div class="clearance"></div>
+</div>
+	<span class="additional_data">
+	
+	<strong>Country:</strong> United States<br/>
+	<strong>Interview Type:</strong> Phone Interview<br/>	
+	
+	</span>
+<br/><br/>
+<div id="commentThread5679897813975040">
+<div>
+</div>
+</div>
+<div class="social_share_buttons">
+<div class="social_share_button subscribe_button">
+	<div class="is_subscribed_items">
+		<div class="subscribe_image subscribe_image_subscribed">&nbsp;</div>
+		<div class="subscribe_text">Email me when people comment.</div>
+	</div>
+	<div class="is_unsubscribed_items">
+		<div class="subscribe_image subscribe_image_unsubscribed">&nbsp;</div>
+		<div class="subscribe_text">Email me when people comment.</div>			
+	</div>
+	<div class="subscribe_loading_items">
+		<div class="subscribe_image subscribe_image_loading">&nbsp;</div>
+		<div class="subscribe_text">Loading...</div>			
+	</div>
+	<div class="subscribe_loading_error">
+		<div class="subscribe_image subscribe_image_error">&nbsp;</div>
+		<div class="subscribe_text">An error occurred in subscribing you.</div>			
+	</div>			
+	<div class="clearance"></div>	
+</div>
+
+</div>
+<br/><br/>
+<div id="commentThread5679897813975040">
+<div>
+	</div><div id="commentThread5721801393963008">
+    <div class="collapsedComment " id="collapsedComment5721801393963008" onclick="javascript:uncollapseComment(5721801393963008);" >Comment hidden because of low score. Click to expand.</div>
+<div class="uncollapsedComment" id="uncollapsedComment5721801393963008" >
+<a name="comment5721801393963008"></a>
+
+<div class="comment">
+
+	<div class="votesWrapper" id="votes5721801393963008">
+		
+		<div class="arrowUp authorHide5746661033771008" onclick="javascript:vote(1, 5721801393963008, 'comment')" id="arrowUp5721801393963008"></div>
+		<div class="arrowUpDisabled authorShow5746661033771008"  style="display: none;"></div>
+		<div class="votesNet" id="votesNet5721801393963008">4</div>
+		<div class="arrowDown  authorHide5746661033771008" onclick="javascript:vote(-1, 5721801393963008, 'comment')"  id="arrowDown5721801393963008"></div>
+		<div class="arrowDownDisabled authorShow5746661033771008" style="display: none;" id="arrowDown5721801393963008"></div>
+		<div class="votesCount" id="votesCount5721801393963008">of <span id="votesCountActual5721801393963008">6</span> vote</div>
+		<div class="clearance"></div>	
+		
+	</div>
+	<div class="commentMain">
+		<div class="commentBody" >
+			 		
+			<p><code><pre class="language-java">Optimal solutions is to multiply each weight by the amount of nodes to the left times the amount of nodes to the right, so for:
+
+    E            F
+       4 \      / 5
+             A
+           1 |
+             B
+       2 /      \ 3
+      C          D
+
+Answer is 1*3*3 + 2*1*5 + 3*1*5 + 4*1*5 + 5*1*5 = 79</pre></code></p>
+		<span class="author">
+			
+			- 
+					<a href="/user?id=5746661033771008" onmouseover="popup(5746661033771008);">ricardolira48</a>
+				 <abbr class="timeago" title="2016-08-20T15:36:29.854560Z">August 20, 2016</abbr> <span><edit author_id="5746661033771008" href="/editcomment?id=5721801393963008"></edit> | <a href="/flagcomment?id=5721801393963008">Flag</a>
+			
+			
+			<a onclick="javascript:insertReply('question', 5721801393963008, 5679897813975040);" class="replyButton" id="replyButton5721801393963008">Reply</a>
+			<div class="clearance"></div>			
+			
+		</span>
+		</div>
+	</div>
+	<div class="clearance"></div>
+</div>
+		
+<div class="clearance"></div>
+</div>
+
+	
+    <div class="collapsedComment collapsedCommentChild" id="collapsedComment5675162880966656" onclick="javascript:uncollapseComment(5675162880966656);" >Comment hidden because of low score. Click to expand.</div>
+<div class="uncollapsedComment" id="uncollapsedComment5675162880966656" >
+<a name="comment5675162880966656"></a>
+
+<div class="childComment">
+
+	<div class="votesWrapper" id="votes5675162880966656">
+		
+	</div>
+	<div class="commentMain">
+		<div class="commentBody" >
+			 
+				<div class="votesWrapperSubComment votesWrapperQuestion" id="votes5675162880966656">
+					<div class="arrowUpQuestion authorHide5766815218139136" onclick="javascript:vote(1, 5675162880966656, 'comment')" id="arrowUp5675162880966656"></div>
+					<div class="arrowUpQuestionDisabled authorShow5766815218139136" style="display: none;"></div>
+					<div class="votesNetQuestion" id="votesNet5675162880966656">0</div>
+					<div class="arrowDownQuestion authorHide5766815218139136" onclick="javascript:vote(-1, 5675162880966656, 'comment')"  id="arrowDown5675162880966656"></div>
+					<div class="arrowDownQuestionDisabled authorShow5766815218139136" style="display: none;"></div>
+					<div class="votesCountQuestion" id="votesCount5675162880966656">of <span id="votesCountActual5675162880966656">0</span> votes</div>
+					<div class="clearance"></div>
+				</div>		
+			 		
+			<p>I think this solution will work as long as the graph is not cyclic. (i.e only one path exist between any two given nodes.). Unfortunately, this fact is not clarified  in the question.</p>
+		<span class="author">
+			
+			- 
+					<a href="/user?id=5766815218139136" onmouseover="popup(5766815218139136);">settyblue</a>
+				 <abbr class="timeago" title="2016-08-21T18:41:38.766900Z">August 21, 2016</abbr> <span><edit author_id="5766815218139136" href="/editcomment?id=5675162880966656"></edit> | <a href="/flagcomment?id=5675162880966656">Flag</a>
+			
+			
+		</span>
+		</div>
+	</div>
+	<div class="clearance"></div>
+</div>
+		
+			
+			<div id="insertReplyHere5721801393963008" style="margin-left: 70px; display: none;"></div>
+		
+<div class="clearance"></div>
+</div>
+
+	</div><div id="commentThread5745009518182400">
+    <div class="collapsedComment " id="collapsedComment5745009518182400" onclick="javascript:uncollapseComment(5745009518182400);" >Comment hidden because of low score. Click to expand.</div>
+<div class="uncollapsedComment" id="uncollapsedComment5745009518182400" >
+<a name="comment5745009518182400"></a>
+
+<div class="comment">
+
+	<div class="votesWrapper" id="votes5745009518182400">
+		
+		<div class="arrowUp authorHide5697461445197824" onclick="javascript:vote(1, 5745009518182400, 'comment')" id="arrowUp5745009518182400"></div>
+		<div class="arrowUpDisabled authorShow5697461445197824"  style="display: none;"></div>
+		<div class="votesNet" id="votesNet5745009518182400">1</div>
+		<div class="arrowDown  authorHide5697461445197824" onclick="javascript:vote(-1, 5745009518182400, 'comment')"  id="arrowDown5745009518182400"></div>
+		<div class="arrowDownDisabled authorShow5697461445197824" style="display: none;" id="arrowDown5745009518182400"></div>
+		<div class="votesCount" id="votesCount5745009518182400">of <span id="votesCountActual5745009518182400">1</span> vote</div>
+		<div class="clearance"></div>	
+		
+	</div>
+	<div class="commentMain">
+		<div class="commentBody" >
+			 		
+			<p>Then how about path C to D? I think the output should be 18.</p>
+		<span class="author">
+			
+			- 
+					<a href="/user?id=5697461445197824" onmouseover="popup(5697461445197824);">wangchenClark0512</a>
+				 <abbr class="timeago" title="2016-08-18T04:21:21.633780Z">August 18, 2016</abbr> <span><edit author_id="5697461445197824" href="/editcomment?id=5745009518182400"></edit> | <a href="/flagcomment?id=5745009518182400">Flag</a>
+			
+			
+			<a onclick="javascript:insertReply('question', 5745009518182400, 5679897813975040);" class="replyButton" id="replyButton5745009518182400">Reply</a>
+			<div class="clearance"></div>			
+			
+		</span>
+		</div>
+	</div>
+	<div class="clearance"></div>
+</div>
+		
+			
+			<div id="insertReplyHere5745009518182400" style="margin-left: 70px; display: none;"></div>
+		
+<div class="clearance"></div>
+</div>
+
+	</div><div id="commentThread5666479161737216">
+    <div class="collapsedComment " id="collapsedComment5666479161737216" onclick="javascript:uncollapseComment(5666479161737216);" >Comment hidden because of low score. Click to expand.</div>
+<div class="uncollapsedComment" id="uncollapsedComment5666479161737216" >
+<a name="comment5666479161737216"></a>
+
+<div class="comment">
+
+	<div class="votesWrapper" id="votes5666479161737216">
+		
+		<div class="arrowUp authorHideNone" onclick="javascript:vote(1, 5666479161737216, 'comment')" id="arrowUp5666479161737216"></div>
+		<div class="arrowUpDisabled authorShowNone"  style="display: none;"></div>
+		<div class="votesNet" id="votesNet5666479161737216">1</div>
+		<div class="arrowDown  authorHideNone" onclick="javascript:vote(-1, 5666479161737216, 'comment')"  id="arrowDown5666479161737216"></div>
+		<div class="arrowDownDisabled authorShowNone" style="display: none;" id="arrowDown5666479161737216"></div>
+		<div class="votesCount" id="votesCount5666479161737216">of <span id="votesCountActual5666479161737216">3</span> vote</div>
+		<div class="clearance"></div>	
+		
+	</div>
+	<div class="commentMain">
+		<div class="commentBody" >
+			 		
+			<p>Forgetting to ask the interviewer about whether the edges can be negative would probably be seen as a big mistake. <br /><br />I'm assuming the question asks for the sum of shortest paths between all pairs of vertices i, j. In the case where edges are guaranteed to be it seems to me that the straightforward solution is the best one. <br /><br />- Floyd Warshall algorithm does this in O(n^3). <br />- Dijsktra algorithm implemented using Fibonacci heaps and started from every vertex does this in n * O(n * logn + m) = O(logn * n^2 + nm), which is better. <br />- Dijkstra algorithm implemented using standard heaps and started from every vertex does this in n * O((m + n) * logn) = O(n(m+n) * logn). <br /><br />If the graph is sparse, Floyd Warshall is significantly worse. Perhaps in the case where the graph has Omega(n^2) vertices, it makes a lot of sense to use Floyd Warshall since it is very simple and is going to cache well (I think). <br /><br />Does anyone know of a better algorithm? Note that the question is interested just in the sum of the weights. <br /><br />And perhaps the question actually asks for the sum of all paths, not just the ones that are shortest paths between two vertices. The wording is slightly ambiguous.</p>
+		<span class="author">
+			
+			- 
+					Lukas
+				 <abbr class="timeago" title="2016-08-18T11:20:52.896420Z">August 18, 2016</abbr> <span><edit author_id="None" href="/editcomment?id=5666479161737216"></edit> | <a href="/flagcomment?id=5666479161737216">Flag</a>
+			
+			
+			<a onclick="javascript:insertReply('question', 5666479161737216, 5679897813975040);" class="replyButton" id="replyButton5666479161737216">Reply</a>
+			<div class="clearance"></div>			
+			
+		</span>
+		</div>
+	</div>
+	<div class="clearance"></div>
+</div>
+		
+			
+			<div id="insertReplyHere5666479161737216" style="margin-left: 70px; display: none;"></div>
+		
+<div class="clearance"></div>
+</div>
+
+	</div><div id="commentThread5653923898589184">
+    <div class="collapsedComment " id="collapsedComment5653923898589184" onclick="javascript:uncollapseComment(5653923898589184);" >Comment hidden because of low score. Click to expand.</div>
+<div class="uncollapsedComment" id="uncollapsedComment5653923898589184" >
+<a name="comment5653923898589184"></a>
+
+<div class="comment">
+
+	<div class="votesWrapper" id="votes5653923898589184">
+		
+		<div class="arrowUp authorHide5181054618959872" onclick="javascript:vote(1, 5653923898589184, 'comment')" id="arrowUp5653923898589184"></div>
+		<div class="arrowUpDisabled authorShow5181054618959872"  style="display: none;"></div>
+		<div class="votesNet" id="votesNet5653923898589184">1</div>
+		<div class="arrowDown  authorHide5181054618959872" onclick="javascript:vote(-1, 5653923898589184, 'comment')"  id="arrowDown5653923898589184"></div>
+		<div class="arrowDownDisabled authorShow5181054618959872" style="display: none;" id="arrowDown5653923898589184"></div>
+		<div class="votesCount" id="votesCount5653923898589184">of <span id="votesCountActual5653923898589184">1</span> vote</div>
+		<div class="clearance"></div>	
+		
+	</div>
+	<div class="commentMain">
+		<div class="commentBody" >
+			 		
+			<p>@djway Did the interviewer mention that the graph didn't have cycles?</p>
+		<span class="author">
+			
+			- 
+					<a href="/user?id=5181054618959872" onmouseover="popup(5181054618959872);">mrsurajpoudel.wordpress.com</a>
+				 <abbr class="timeago" title="2016-08-19T00:55:46.449680Z">August 19, 2016</abbr> <span><edit author_id="5181054618959872" href="/editcomment?id=5653923898589184"></edit> | <a href="/flagcomment?id=5653923898589184">Flag</a>
+			
+			
+			<a onclick="javascript:insertReply('question', 5653923898589184, 5679897813975040);" class="replyButton" id="replyButton5653923898589184">Reply</a>
+			<div class="clearance"></div>			
+			
+		</span>
+		</div>
+	</div>
+	<div class="clearance"></div>
+</div>
+		
+			
+			<div id="insertReplyHere5653923898589184" style="margin-left: 70px; display: none;"></div>
+		
+<div class="clearance"></div>
+</div>
+
+	</div><div id="commentThread5695535253028864">
+    <div class="collapsedComment " id="collapsedComment5695535253028864" onclick="javascript:uncollapseComment(5695535253028864);" >Comment hidden because of low score. Click to expand.</div>
+<div class="uncollapsedComment" id="uncollapsedComment5695535253028864" >
+<a name="comment5695535253028864"></a>
+
+<div class="comment">
+
+	<div class="votesWrapper" id="votes5695535253028864">
+		
+		<div class="arrowUp authorHide5735335104348160" onclick="javascript:vote(1, 5695535253028864, 'comment')" id="arrowUp5695535253028864"></div>
+		<div class="arrowUpDisabled authorShow5735335104348160"  style="display: none;"></div>
+		<div class="votesNet" id="votesNet5695535253028864">1</div>
+		<div class="arrowDown  authorHide5735335104348160" onclick="javascript:vote(-1, 5695535253028864, 'comment')"  id="arrowDown5695535253028864"></div>
+		<div class="arrowDownDisabled authorShow5735335104348160" style="display: none;" id="arrowDown5695535253028864"></div>
+		<div class="votesCount" id="votesCount5695535253028864">of <span id="votesCountActual5695535253028864">1</span> vote</div>
+		<div class="clearance"></div>	
+		
+	</div>
+	<div class="commentMain">
+		<div class="commentBody" >
+			 		
+			<p><code><pre class="language-java">package tt.oleg.problems.careercup.SumWeightOfEachPath;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * Created by oleg on 8/22/16.
+ */
+public class Graph
+{
+    static class Vertex
+    {
+        final String name;
+        final Map&lt;Vertex, Integer&gt; adj = new HashMap&lt;&gt;();
+
+        Vertex(String name)
+        {
+            this.name = name;
+        }
+
+        public void addAdj(Vertex v, int Weight)
+        {
+            adj.put(v, Weight);
+        }
+
+        @Override
+        public int hashCode()
+        {
+            return name.hashCode();
+        }
+    }
+
+    final Vertex[] vertices;
+
+    public Graph(Vertex[] vertices)
+    {
+        this.vertices = vertices;
+    }
+
+    public int calculateAllWeights()
+    {
+        int total = 0;
+        final Map&lt;Vertex, HashMap&lt;Vertex, Integer&gt;&gt; cache = new HashMap&lt;&gt;();
+
+        for (Vertex v : vertices)
+        {
+            countNodesforAdj(v, null, cache);
+        }
+        for (Vertex v : vertices)
+        {
+            if (cache.containsKey(v))
+            {
+                for (Map.Entry&lt;Vertex, Integer&gt; edge : v.adj.entrySet())
+                {
+                    if (cache.get(v).containsKey(edge.getKey()))
+                    {
+                        int oneWayEdgeCounter = cache.get(v).get(edge.getKey());
+                        cache.get(v).remove(edge.getKey());
+                        int backawrdWayEdgeCounter = cache.get(edge.getKey()).get(v);
+                        cache.get(edge.getKey()).remove(v);
+                        total += (oneWayEdgeCounter * backawrdWayEdgeCounter * edge.getValue());
+                    }
+                }
+            }
+        }
+        return total;
+    }
+
+    private int countNodesforAdj(Vertex to, Vertex from, Map&lt;Vertex, HashMap&lt;Vertex, Integer&gt;&gt; cache)
+    {
+        if (cache.containsKey(from) &amp;&amp; cache.get(from).containsKey(to)) return cache.get(from).get(to);
+        int countResult = 0;
+        for (Vertex n : to.adj.keySet())
+        {
+            if (n == from) continue;
+            countResult += countNodesforAdj(n, to, cache);
+        }
+        countResult++;
+
+        if (from != null)
+        {
+            if (!cache.containsKey(from)) cache.put(from, new HashMap&lt;Vertex, Integer&gt;());
+            Map&lt;Vertex, Integer&gt; map = cache.get(from);
+            map.put(to, countResult);
+        }
+        return countResult;
+    }
+}</pre></code></p>
+		<span class="author">
+			
+			- 
+					<a href="/user?id=5735335104348160" onmouseover="popup(5735335104348160);">oleg.a.tkachenko</a>
+				 <abbr class="timeago" title="2016-08-23T18:55:08.753770Z">August 23, 2016</abbr> <span><edit author_id="5735335104348160" href="/editcomment?id=5695535253028864"></edit> | <a href="/flagcomment?id=5695535253028864">Flag</a>
+			
+			
+			<a onclick="javascript:insertReply('question', 5695535253028864, 5679897813975040);" class="replyButton" id="replyButton5695535253028864">Reply</a>
+			<div class="clearance"></div>			
+			
+		</span>
+		</div>
+	</div>
+	<div class="clearance"></div>
+</div>
+		
+			
+			<div id="insertReplyHere5695535253028864" style="margin-left: 70px; display: none;"></div>
+		
+<div class="clearance"></div>
+</div>
+
+	</div><div id="commentThread4909306056015872">
+    <div class="collapsedComment " id="collapsedComment4909306056015872" onclick="javascript:uncollapseComment(4909306056015872);" >Comment hidden because of low score. Click to expand.</div>
+<div class="uncollapsedComment" id="uncollapsedComment4909306056015872" >
+<a name="comment4909306056015872"></a>
+
+<div class="comment">
+
+	<div class="votesWrapper" id="votes4909306056015872">
+		
+		<div class="arrowUp authorHide5713205201469440" onclick="javascript:vote(1, 4909306056015872, 'comment')" id="arrowUp4909306056015872"></div>
+		<div class="arrowUpDisabled authorShow5713205201469440"  style="display: none;"></div>
+		<div class="votesNet" id="votesNet4909306056015872">1</div>
+		<div class="arrowDown  authorHide5713205201469440" onclick="javascript:vote(-1, 4909306056015872, 'comment')"  id="arrowDown4909306056015872"></div>
+		<div class="arrowDownDisabled authorShow5713205201469440" style="display: none;" id="arrowDown4909306056015872"></div>
+		<div class="votesCount" id="votesCount4909306056015872">of <span id="votesCountActual4909306056015872">1</span> vote</div>
+		<div class="clearance"></div>	
+		
+	</div>
+	<div class="commentMain">
+		<div class="commentBody" >
+			 		
+			<p>Inspired by  ricardolira48<br /><br />The problem can be solved in O(n) time where n is the number of nodes.<br /><br />Since the graph has no cycle, an edge e divides the graph into two sub graphs. For any path between the two graphs, the edge is always used exactly once. And there are (n1 * n2) number of possible paths between the sub-graphs (n1 is the number of nodes in sub-graph 1 and n2 is the number of the nodes in sub-graph 2). Therefore, the amount of value that the edge contributes to the final sum is 'w * n1  * n2, where w is the weight of the edge.<br /><br />So, we basically calculate w * n1 * n2 for all edges and sum them up. Then how do we calculate n1 and n2? It is obvious that n1 + n2 = n, where n is the number of all nodes in the graph. So we need to only calculate either n1 or n2.<br /><br />At this point, let's treat the graph as a tree by taking an arbitrary node as root. Note that this possible since the graph does not have any cycle.<br /><br />Then, we can solve the problem by traversing the tree and sum up (w * size of a sub-tree * (n - size of a sub-tree) when visiting a node.</p><p><code><pre class="language-java">// convert the graph g into a tree with node n as the root. 
+Tree convertToTree(Graph g, Node n) {// left unimplemented; }
+
+abstract class Tree {
+    int size; // number of nodes in a tree (including this node)
+}
+
+// Leaf node.
+class Leaf extends Tree {
+    Leaf() {
+        size = 1; // size of the leaf node is always 1 since it is the only node
+    }
+    // returns the amount of values that the edge 
+    // between this node and its parent node contributes to the final sum
+    int visit(int weight) {
+        // the edge is used to connect this node to other g.size -1 nodes. 
+        return weight * (g.size - 1);
+    }        
+}    
+
+// non-leaf node
+class Parent extends Tree {
+    List&lt;Tree&gt; children; // list of children
+    List&lt;Integer&gt; weights; // weight of edges for each child
+
+    int visit(int weight) {
+        int sum = 0;
+        int size = 1;
+        // visit child nodes 
+        for(int i=0; i&lt;children.size(); i++) {
+            // accumulate the sum
+            sum += children.get(i).visit(weights.get(i));
+            // accumulate the number of nodes under this node
+            size += children.get(i).size;
+        }
+	// consider edge from parent node to this node
+        sum += weight * size * (g.nodes.size() - size);
+        // update the size of this node (to be used by parent node)
+        this.size = size;
+    }     
+}
+
+int sumOfAllPathWeights(Graph g) {
+    if (g.nodes.size == 0) { return 0;}
+    // convert to a tree by taking the first node as root
+    Tree t = convertToTree(g, g.nodes.get(0));
+    // the root node has no incoming edge so the initial weight is 0.
+    return t.visit(0);
+}</pre></code></p>
+		<span class="author">
+			
+			- 
+					<a href="/user?id=5713205201469440" onmouseover="popup(5713205201469440);">jjongpark</a>
+				 <abbr class="timeago" title="2016-08-27T06:36:03.067530Z">August 27, 2016</abbr> <span><edit author_id="5713205201469440" href="/editcomment?id=4909306056015872"></edit> | <a href="/flagcomment?id=4909306056015872">Flag</a>
+			
+			
+			<a onclick="javascript:insertReply('question', 4909306056015872, 5679897813975040);" class="replyButton" id="replyButton4909306056015872">Reply</a>
+			<div class="clearance"></div>			
+			
+		</span>
+		</div>
+	</div>
+	<div class="clearance"></div>
+</div>
+		
+			
+			<div id="insertReplyHere4909306056015872" style="margin-left: 70px; display: none;"></div>
+		
+<div class="clearance"></div>
+</div>
+
+	</div><div id="commentThread5633755805908992">
+    <div class="collapsedComment " id="collapsedComment5633755805908992" onclick="javascript:uncollapseComment(5633755805908992);" >Comment hidden because of low score. Click to expand.</div>
+<div class="uncollapsedComment" id="uncollapsedComment5633755805908992" >
+<a name="comment5633755805908992"></a>
+
+<div class="comment">
+
+	<div class="votesWrapper" id="votes5633755805908992">
+		
+		<div class="arrowUp authorHideNone" onclick="javascript:vote(1, 5633755805908992, 'comment')" id="arrowUp5633755805908992"></div>
+		<div class="arrowUpDisabled authorShowNone"  style="display: none;"></div>
+		<div class="votesNet" id="votesNet5633755805908992">0</div>
+		<div class="arrowDown  authorHideNone" onclick="javascript:vote(-1, 5633755805908992, 'comment')"  id="arrowDown5633755805908992"></div>
+		<div class="arrowDownDisabled authorShowNone" style="display: none;" id="arrowDown5633755805908992"></div>
+		<div class="votesCount" id="votesCount5633755805908992">of <span id="votesCountActual5633755805908992">0</span> vote</div>
+		<div class="clearance"></div>	
+		
+	</div>
+	<div class="commentMain">
+		<div class="commentBody" >
+			 		
+			<p>testin</p>
+		<span class="author">
+			
+			- 
+					shah
+				 <abbr class="timeago" title="2016-08-18T10:00:37.311700Z">August 18, 2016</abbr> <span><edit author_id="None" href="/editcomment?id=5633755805908992"></edit> | <a href="/flagcomment?id=5633755805908992">Flag</a>
+			
+			
+			<a onclick="javascript:insertReply('question', 5633755805908992, 5679897813975040);" class="replyButton" id="replyButton5633755805908992">Reply</a>
+			<div class="clearance"></div>			
+			
+		</span>
+		</div>
+	</div>
+	<div class="clearance"></div>
+</div>
+		
+			
+			<div id="insertReplyHere5633755805908992" style="margin-left: 70px; display: none;"></div>
+		
+<div class="clearance"></div>
+</div>
+
+	</div><div id="commentThread5657305212256256">
+    <div class="collapsedComment " id="collapsedComment5657305212256256" onclick="javascript:uncollapseComment(5657305212256256);" >Comment hidden because of low score. Click to expand.</div>
+<div class="uncollapsedComment" id="uncollapsedComment5657305212256256" >
+<a name="comment5657305212256256"></a>
+
+<div class="comment">
+
+	<div class="votesWrapper" id="votes5657305212256256">
+		
+		<div class="arrowUp authorHide5668297107308544" onclick="javascript:vote(1, 5657305212256256, 'comment')" id="arrowUp5657305212256256"></div>
+		<div class="arrowUpDisabled authorShow5668297107308544"  style="display: none;"></div>
+		<div class="votesNet" id="votesNet5657305212256256">0</div>
+		<div class="arrowDown  authorHide5668297107308544" onclick="javascript:vote(-1, 5657305212256256, 'comment')"  id="arrowDown5657305212256256"></div>
+		<div class="arrowDownDisabled authorShow5668297107308544" style="display: none;" id="arrowDown5657305212256256"></div>
+		<div class="votesCount" id="votesCount5657305212256256">of <span id="votesCountActual5657305212256256">0</span> vote</div>
+		<div class="clearance"></div>	
+		
+	</div>
+	<div class="commentMain">
+		<div class="commentBody" >
+			 		
+			<p>Simple solution- Run BFS and keep track of all the paths we have encountered from this node</p><p><code><pre class="language-java">struct Node{
+		char Name;
+		unordered_map&lt;Node*, int&gt; neighbors // hash table with corrosponding weight
+}	
+
+
+	void printSum(vector&lt;Node*&gt;&amp; graph){
+
+		unordered_map&lt;Node*, unordered_set&lt;Node*&gt;&gt; paths; // all the paths we have for this node
+		int global_sum = 0;
+		for (Node* n : graph)
+			paths.insert(n,unordered_set&lt;Node*&gt;()); // initialize all nodes
+		
+		for (Node* n : graph){
+			runBFS(n,global_sum,paths);
+
+		cout &lt;&lt; global_sum&lt;&lt;endl;
+}
+
+
+	void runBFS(Node* root, int&amp; global_sum,unordered_map&lt;Node*, unordered_set&lt;Node*&gt;&gt;&amp; paths){
+		
+		Queue&lt;pair&lt;Node*,int&gt;&gt; q; /// queue with the path to this  node
+		unordered_set&lt;Node*&gt; seen; // keep track of which nodes we have seen
+		q.push(make_pair(root,0));
+		seen.insert(root);
+
+		unordered_set&lt;Node*&gt; my_paths = paths.find(root)-&gt;second; // my paths
+
+		// start bfs
+		while (!q.empty()){
+			
+		auto top = q.front(); // get the top
+		q.pop();
+		Node * visiting_node = top.first; // get the visiting node
+			
+		// loop through neihbors
+		for (Node* neighbor: visiting_node-&gt;neighbors){
+			if (seen.find(neighboor) == seen.end()){
+				
+				seen.add(neighbor);
+				auto temp = make_pair(neighbor-&gt;first,top-&gt;second+neighbor-&gt;second); // make pair with my distance plus my parents total distance
+				if (my_paths.find(neighbor-&gt;first) == my_paths.end()){ // i havent visited it 
+						auto&amp; neighbor_path = paths.find(neighbor-&gt;first)-&gt;second;
+						neigbor_path.insert(root); // we have a path from root to this guy
+						global_sum += temp-&gt;second; // update sum
+				} //  end of visiting if
+				q.push(temp);
+			} // end of if
+		} // end of for
+
+		} // end of while
+		
+
+
+	} // end of runBFS method
+
+}</pre></code></p>
+		<span class="author">
+			
+			- 
+					<a href="/user?id=5668297107308544" onmouseover="popup(5668297107308544);">shahzaib1019</a>
+				 <abbr class="timeago" title="2016-08-18T10:23:01.422010Z">August 18, 2016</abbr> <span><edit author_id="5668297107308544" href="/editcomment?id=5657305212256256"></edit> | <a href="/flagcomment?id=5657305212256256">Flag</a>
+			
+			
+			<a onclick="javascript:insertReply('question', 5657305212256256, 5679897813975040);" class="replyButton" id="replyButton5657305212256256">Reply</a>
+			<div class="clearance"></div>			
+			
+		</span>
+		</div>
+	</div>
+	<div class="clearance"></div>
+</div>
+		
+			
+			<div id="insertReplyHere5657305212256256" style="margin-left: 70px; display: none;"></div>
+		
+<div class="clearance"></div>
+</div>
+
+	</div><div id="commentThread5684258816393216">
+    <div class="collapsedComment " id="collapsedComment5684258816393216" onclick="javascript:uncollapseComment(5684258816393216);" >Comment hidden because of low score. Click to expand.</div>
+<div class="uncollapsedComment" id="uncollapsedComment5684258816393216" >
+<a name="comment5684258816393216"></a>
+
+<div class="comment">
+
+	<div class="votesWrapper" id="votes5684258816393216">
+		
+		<div class="arrowUp authorHide5667077504368640" onclick="javascript:vote(1, 5684258816393216, 'comment')" id="arrowUp5684258816393216"></div>
+		<div class="arrowUpDisabled authorShow5667077504368640"  style="display: none;"></div>
+		<div class="votesNet" id="votesNet5684258816393216">0</div>
+		<div class="arrowDown  authorHide5667077504368640" onclick="javascript:vote(-1, 5684258816393216, 'comment')"  id="arrowDown5684258816393216"></div>
+		<div class="arrowDownDisabled authorShow5667077504368640" style="display: none;" id="arrowDown5684258816393216"></div>
+		<div class="votesCount" id="votesCount5684258816393216">of <span id="votesCountActual5684258816393216">0</span> vote</div>
+		<div class="clearance"></div>	
+		
+	</div>
+	<div class="commentMain">
+		<div class="commentBody" >
+			 		
+			<p>I did not fully understand the optimal solution the interviewer described, but this is what I remember. The interviewer said to multiply each weight by the size of the tree of its connecting neighbors. So with the example, it would be 1*3 + 2*3 + 3*3 = 18.</p>
+		<span class="author">
+			
+			- 
+					<a href="/user?id=5667077504368640" onmouseover="popup(5667077504368640);">djway</a>
+				 <abbr class="timeago" title="2016-08-18T21:16:23.145560Z">August 18, 2016</abbr> <span><edit author_id="5667077504368640" href="/editcomment?id=5684258816393216"></edit> | <a href="/flagcomment?id=5684258816393216">Flag</a>
+			
+			
+			<a onclick="javascript:insertReply('question', 5684258816393216, 5679897813975040);" class="replyButton" id="replyButton5684258816393216">Reply</a>
+			<div class="clearance"></div>			
+			
+		</span>
+		</div>
+	</div>
+	<div class="clearance"></div>
+</div>
+		
+			
+			<div id="insertReplyHere5684258816393216" style="margin-left: 70px; display: none;"></div>
+		
+<div class="clearance"></div>
+</div>
+
+	</div><div id="commentThread5124199812169728">
+    <div class="collapsedComment " id="collapsedComment5124199812169728" onclick="javascript:uncollapseComment(5124199812169728);" >Comment hidden because of low score. Click to expand.</div>
+<div class="uncollapsedComment" id="uncollapsedComment5124199812169728" >
+<a name="comment5124199812169728"></a>
+
+<div class="comment">
+
+	<div class="votesWrapper" id="votes5124199812169728">
+		
+		<div class="arrowUp authorHide5667077504368640" onclick="javascript:vote(1, 5124199812169728, 'comment')" id="arrowUp5124199812169728"></div>
+		<div class="arrowUpDisabled authorShow5667077504368640"  style="display: none;"></div>
+		<div class="votesNet" id="votesNet5124199812169728">0</div>
+		<div class="arrowDown  authorHide5667077504368640" onclick="javascript:vote(-1, 5124199812169728, 'comment')"  id="arrowDown5124199812169728"></div>
+		<div class="arrowDownDisabled authorShow5667077504368640" style="display: none;" id="arrowDown5124199812169728"></div>
+		<div class="votesCount" id="votesCount5124199812169728">of <span id="votesCountActual5124199812169728">0</span> vote</div>
+		<div class="clearance"></div>	
+		
+	</div>
+	<div class="commentMain">
+		<div class="commentBody" >
+			 		
+			<p>@mrsurajpoudel.wordpress.com The interviewer told me not to worry about cycles for now, so I probably did not get far enough for the followup question.</p>
+		<span class="author">
+			
+			- 
+					<a href="/user?id=5667077504368640" onmouseover="popup(5667077504368640);">djway</a>
+				 <abbr class="timeago" title="2016-08-19T07:29:27.651330Z">August 19, 2016</abbr> <span><edit author_id="5667077504368640" href="/editcomment?id=5124199812169728"></edit> | <a href="/flagcomment?id=5124199812169728">Flag</a>
+			
+			
+			<a onclick="javascript:insertReply('question', 5124199812169728, 5679897813975040);" class="replyButton" id="replyButton5124199812169728">Reply</a>
+			<div class="clearance"></div>			
+			
+		</span>
+		</div>
+	</div>
+	<div class="clearance"></div>
+</div>
+		
+			
+			<div id="insertReplyHere5124199812169728" style="margin-left: 70px; display: none;"></div>
+		
+<div class="clearance"></div>
+</div>
+
+	</div><div id="commentThread5729226855546880">
+    <div class="collapsedComment " id="collapsedComment5729226855546880" onclick="javascript:uncollapseComment(5729226855546880);" >Comment hidden because of low score. Click to expand.</div>
+<div class="uncollapsedComment" id="uncollapsedComment5729226855546880" >
+<a name="comment5729226855546880"></a>
+
+<div class="comment">
+
+	<div class="votesWrapper" id="votes5729226855546880">
+		
+		<div class="arrowUp authorHideNone" onclick="javascript:vote(1, 5729226855546880, 'comment')" id="arrowUp5729226855546880"></div>
+		<div class="arrowUpDisabled authorShowNone"  style="display: none;"></div>
+		<div class="votesNet" id="votesNet5729226855546880">0</div>
+		<div class="arrowDown  authorHideNone" onclick="javascript:vote(-1, 5729226855546880, 'comment')"  id="arrowDown5729226855546880"></div>
+		<div class="arrowDownDisabled authorShowNone" style="display: none;" id="arrowDown5729226855546880"></div>
+		<div class="votesCount" id="votesCount5729226855546880">of <span id="votesCountActual5729226855546880">0</span> vote</div>
+		<div class="clearance"></div>	
+		
+	</div>
+	<div class="commentMain">
+		<div class="commentBody" >
+			 		
+			<p>If the graph have no cycles, there's on path from each vertex to another.<br />Take the following graph for example:</p><p><code><pre class="language-java">A
+       | 
+       B
+     /   \         
+    C     D
+         / \
+        E   F
+
+       A
+       | 
+       B
+     /  
+    C     D
+         / \
+        E   F</pre></code></p><p>Take for example the path from B to D and remove it. <br />This edge is contributed to the paths from every node on one sub-tree to the other sub-tree.<br />On each side there are three vertices, so it's contributed 3*3 times = 9<br />The path from D to F for example will cut the graph to one vertex on one side and 5 on the other side<br />So there are 1*5 paths, it's contributed to.</p>
+		<span class="author">
+			
+			- 
+					bd
+				 <abbr class="timeago" title="2016-08-20T08:21:24.306110Z">August 20, 2016</abbr> <span><edit author_id="None" href="/editcomment?id=5729226855546880"></edit> | <a href="/flagcomment?id=5729226855546880">Flag</a>
+			
+			
+			<a onclick="javascript:insertReply('question', 5729226855546880, 5679897813975040);" class="replyButton" id="replyButton5729226855546880">Reply</a>
+			<div class="clearance"></div>			
+			
+		</span>
+		</div>
+	</div>
+	<div class="clearance"></div>
+</div>
+		
+			
+			<div id="insertReplyHere5729226855546880" style="margin-left: 70px; display: none;"></div>
+		
+<div class="clearance"></div>
+</div>
+
+	</div><div id="commentThread5719621966495744">
+    <div class="collapsedComment " id="collapsedComment5719621966495744" onclick="javascript:uncollapseComment(5719621966495744);" >Comment hidden because of low score. Click to expand.</div>
+<div class="uncollapsedComment" id="uncollapsedComment5719621966495744" >
+<a name="comment5719621966495744"></a>
+
+<div class="comment">
+
+	<div class="votesWrapper" id="votes5719621966495744">
+		
+		<div class="arrowUp authorHideNone" onclick="javascript:vote(1, 5719621966495744, 'comment')" id="arrowUp5719621966495744"></div>
+		<div class="arrowUpDisabled authorShowNone"  style="display: none;"></div>
+		<div class="votesNet" id="votesNet5719621966495744">0</div>
+		<div class="arrowDown  authorHideNone" onclick="javascript:vote(-1, 5719621966495744, 'comment')"  id="arrowDown5719621966495744"></div>
+		<div class="arrowDownDisabled authorShowNone" style="display: none;" id="arrowDown5719621966495744"></div>
+		<div class="votesCount" id="votesCount5719621966495744">of <span id="votesCountActual5719621966495744">0</span> vote</div>
+		<div class="clearance"></div>	
+		
+	</div>
+	<div class="commentMain">
+		<div class="commentBody" >
+			 		
+			<p>coder</p>
+		<span class="author">
+			
+			- 
+					hi
+				 <abbr class="timeago" title="2016-08-20T10:38:16.386240Z">August 20, 2016</abbr> <span><edit author_id="None" href="/editcomment?id=5719621966495744"></edit> | <a href="/flagcomment?id=5719621966495744">Flag</a>
+			
+			
+			<a onclick="javascript:insertReply('question', 5719621966495744, 5679897813975040);" class="replyButton" id="replyButton5719621966495744">Reply</a>
+			<div class="clearance"></div>			
+			
+		</span>
+		</div>
+	</div>
+	<div class="clearance"></div>
+</div>
+		
+			
+			<div id="insertReplyHere5719621966495744" style="margin-left: 70px; display: none;"></div>
+		
+<div class="clearance"></div>
+</div>
+
+	</div><div id="commentThread5663155763019776">
+    <div class="collapsedComment " id="collapsedComment5663155763019776" onclick="javascript:uncollapseComment(5663155763019776);" >Comment hidden because of low score. Click to expand.</div>
+<div class="uncollapsedComment" id="uncollapsedComment5663155763019776" >
+<a name="comment5663155763019776"></a>
+
+<div class="comment">
+
+	<div class="votesWrapper" id="votes5663155763019776">
+		
+		<div class="arrowUp authorHide5069531841036288" onclick="javascript:vote(1, 5663155763019776, 'comment')" id="arrowUp5663155763019776"></div>
+		<div class="arrowUpDisabled authorShow5069531841036288"  style="display: none;"></div>
+		<div class="votesNet" id="votesNet5663155763019776">0</div>
+		<div class="arrowDown  authorHide5069531841036288" onclick="javascript:vote(-1, 5663155763019776, 'comment')"  id="arrowDown5663155763019776"></div>
+		<div class="arrowDownDisabled authorShow5069531841036288" style="display: none;" id="arrowDown5663155763019776"></div>
+		<div class="votesCount" id="votesCount5663155763019776">of <span id="votesCountActual5663155763019776">0</span> vote</div>
+		<div class="clearance"></div>	
+		
+	</div>
+	<div class="commentMain">
+		<div class="commentBody" >
+			 		
+			<p><code><pre class="language-java">/*
+I noticed the task was quite exactly specified with the few words, but it needed some repetition:
+- unidirected graph with weights and no cycles: -&gt; that can be viewed as a tree
+- the sum of the weight of each path: means one value for the whole structure
+- shortest path between two vertices: in this setup, it's as well the shortest 
+  weighted path because no forward and backward edges exist (would create cycles 
+  on unidirected graph)
+  --&gt; no need for Djikstra or other heavy weight algos 
+  --&gt; negative weights don't matter
+
+Solution approach:
+- pick an arbitrary node as root to start, traverse down until first leave, 
+  note it's total tree size (=1) propagate that size to the parent, so parent 
+  can keeps track of it's total tree size etc. While doing this for every completely 
+  visited node store in a list it's tree size and weight of edge to parent
+- when tree is completely traversed, go through the above created list 
+  (with length n) with pairs that contain tree size (s) and edge-weight (w):
+  sum += (n-s)*s*w
+  (node: an edge kind of cut's the tree in two, if a leave is cut, 
+  it's sub-tree is 1, so 1*n paths to all vertices, if the subtree is 2, it's 2*(n-2), 
+  because from each of the two nodes goes a path to each of the remaining n-2 nodes)
+
+The solution looks still complicated, maybe there is an easy algo for it. 
+
+Time-Complexity: O(|V|+|E|) = O(|V|+[V]) = O(|V|) due to constraints given
+Space-Complexity: O(|V|)
+*/
+
+
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;stack&gt;
+#include &lt;iostream&gt;
+#include &lt;unordered_set&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+
+class Node
+{
+private:
+	string _id;
+	vector&lt;pair&lt;int, Node*&gt;&gt; _adj;
+	
+	Node *_parent = nullptr; // parent
+	int _size = 1; // subtree sisze
+	int _wtop = 0; // weight to parent
+	bool _visited = false;
+
+public:
+	Node(string id) : _id{ id } {}
+
+	void Connect(Node *adj, int w)
+	{
+		_adj.emplace_back(pair&lt;int, Node*&gt;(w, adj));
+		adj-&gt;_adj.emplace_back(pair&lt;int, Node*&gt;(w, this));
+	}
+
+	int SumAllPairWeight()
+	{
+		ClearAll();
+		vector&lt;pair&lt;int, int&gt;&gt; nodes; //1st: treesize, 2nd: weight to parent
+		stack&lt;Node*&gt; s;
+		s.push(this);
+		while (!s.empty())
+		{
+			auto u = s.top();
+			bool visit = true; 
+			for (auto e : u-&gt;_adj)
+			{
+				auto v = e.second;
+				auto w = e.first;
+				if (v != u-&gt;_parent &amp;&amp; !v-&gt;_visited)
+				{
+					visit = false;
+					s.push(v);
+					v-&gt;_parent = u;
+					v-&gt;_wtop = w;
+					v-&gt;_size = 1;
+				}
+			}
+			if (visit)
+			{
+				u-&gt;_visited = true;
+				s.pop();
+				nodes.emplace_back(pair&lt;int, int&gt;(u-&gt;_size, u-&gt;_wtop));
+				auto p = u-&gt;_parent;
+				if (p != nullptr)
+				{
+					p-&gt;_size += u-&gt;_size;
+				}
+			}
+		}
+
+		int sum = 0;
+		int n = nodes.size();
+		for (auto u : nodes)
+		{
+			int s = u.first;
+			int w = u.second;
+			sum += (n - s)*s*w;
+		}
+		return sum;
+	}
+
+private:
+	void ClearAll()
+	{
+		unordered_set&lt;Node*&gt; vis;
+		stack&lt;Node*&gt; s;
+		s.push(this);
+		while (!s.empty())
+		{
+			auto u = s.top();
+			s.pop();
+			u-&gt;_visited = false;
+			u-&gt;_parent = nullptr;
+			u-&gt;_wtop = 0;
+			u-&gt;_size = 1;
+			vis.emplace(u);
+			for (auto e : u-&gt;_adj)
+			{
+				auto v = e.second;
+				if (vis.find(v) == vis.end())
+				{
+					s.emplace(v);
+				}
+			}
+		}
+	}
+};
+
+int main()
+{
+	Node a{ "A" };
+	Node b{ "B" };
+	Node c{ "C" };
+	Node d{ "D" };
+
+	a.Connect(&amp;b, 1);
+	b.Connect(&amp;c, 2);
+	b.Connect(&amp;d, 3);
+
+	cout &lt;&lt; "sum (from a): " &lt;&lt; a.SumAllPairWeight() &lt;&lt; endl;
+	cout &lt;&lt; "sum (from b): " &lt;&lt; b.SumAllPairWeight() &lt;&lt; endl;
+
+	getchar();
+}</pre></code></p>
+		<span class="author">
+			
+			- 
+					<a href="/user?id=5069531841036288" onmouseover="popup(5069531841036288);">ChrisZ</a>
+				 <abbr class="timeago" title="2016-08-23T20:46:42.685370Z">August 23, 2016</abbr> <span><edit author_id="5069531841036288" href="/editcomment?id=5663155763019776"></edit> | <a href="/flagcomment?id=5663155763019776">Flag</a>
+			
+			
+			<a onclick="javascript:insertReply('question', 5663155763019776, 5679897813975040);" class="replyButton" id="replyButton5663155763019776">Reply</a>
+			<div class="clearance"></div>			
+			
+		</span>
+		</div>
+	</div>
+	<div class="clearance"></div>
+</div>
+		
+			
+			<div id="insertReplyHere5663155763019776" style="margin-left: 70px; display: none;"></div>
+		
+<div class="clearance"></div>
+</div>
+
+	</div><div id="commentThread5752960307953664">
+    <div class="collapsedComment " id="collapsedComment5752960307953664" onclick="javascript:uncollapseComment(5752960307953664);" >Comment hidden because of low score. Click to expand.</div>
+<div class="uncollapsedComment" id="uncollapsedComment5752960307953664" >
+<a name="comment5752960307953664"></a>
+
+<div class="comment">
+
+	<div class="votesWrapper" id="votes5752960307953664">
+		
+		<div class="arrowUp authorHideNone" onclick="javascript:vote(1, 5752960307953664, 'comment')" id="arrowUp5752960307953664"></div>
+		<div class="arrowUpDisabled authorShowNone"  style="display: none;"></div>
+		<div class="votesNet" id="votesNet5752960307953664">0</div>
+		<div class="arrowDown  authorHideNone" onclick="javascript:vote(-1, 5752960307953664, 'comment')"  id="arrowDown5752960307953664"></div>
+		<div class="arrowDownDisabled authorShowNone" style="display: none;" id="arrowDown5752960307953664"></div>
+		<div class="votesCount" id="votesCount5752960307953664">of <span id="votesCountActual5752960307953664">0</span> vote</div>
+		<div class="clearance"></div>	
+		
+	</div>
+	<div class="commentMain">
+		<div class="commentBody" >
+			 		
+			<p>import java.io.*;<br />import java.util.*;<br /><br />/*<br /> * To execute Java, please define "static void main" on a class<br /> * named Solution.<br /> *<br /> * If you need more classes, simply define them inline.<br /> */<br /><br />class Solution { <br />  public static void main(String[] args) {<br />    Graph graph = new Graph(6);<br />    graph.addEdge(0, 2, 4);<br />    graph.addEdge(1, 2, 5);<br />    graph.addEdge(2, 3, 1);<br />    graph.addEdge(3, 4, 2);<br />    graph.addEdge(3, 5, 3);<br />    <br />    //graph.printMatrix();<br />    graph.floyd();<br />    System.out.println(graph.getSum());<br />  }<br />}<br /><br />class Graph{<br />    int size=0;<br />    Map&lt;Integer, List&lt;Edge&gt;&gt; map = new HashMap&lt;&gt;();<br />    int[][] matrix;<br />    <br />    public Graph(int size){<br />      this.size = size;<br />      matrix = new int[size][size];<br />      <br />      for(int i=0;i&lt;size;i++){<br />        for(int j=0;j&lt;size;j++){<br />          matrix[i][j] = Integer.MAX_VALUE;<br />          <br />          if(i==j) matrix[i][j] = 0;<br />        }<br />      }<br />      //printMatrix();<br />    }<br />    <br />    public void addEdge(int start, int end, int weight){<br />      if(!map.containsKey(start)){<br />        List&lt;Edge&gt; edges = new ArrayList&lt;&gt;();<br />        map.put(start, edges);<br />      }<br />      <br />      map.get(start).add(new Edge(start, end, weight));<br />    }<br />    <br />    public int getSum(){<br />      //return 1;<br />      //printMatrix();<br />      int sum = 0;<br />      for(int i=0; i&lt;size;i++){<br />        for(int j=0; j&lt;size;j++){<br />          if(matrix[i][j] != Integer.MAX_VALUE){<br />            sum += matrix[i][j];<br />          }<br />        }<br />      }<br />      <br />      return sum/2;<br />    }<br />    <br />    public void floyd(){<br />      //printMatrix();<br />      for(List&lt;Edge&gt; edges : map.values()){<br />        for(Edge edge: edges){<br />          //System.out.println(edge.start+","+edge.end);<br />          matrix[edge.start][edge.end] = edge.weight;<br />          matrix[edge.end][edge.start] = edge.weight;<br />        }<br />      }<br />          <br />      for(int k=0; k&lt;this.size;k++){<br />        for(int i=0; i&lt;this.size;i++){<br />          for(int j=0; j&lt;this.size;j++){<br />              if(matrix[i][k] !=Integer.MAX_VALUE &amp;&amp; <br />                 matrix[k][j] !=Integer.MAX_VALUE &amp;&amp; <br />                 matrix[i][k] + matrix[k][j] &lt; matrix[i][j]){<br />                matrix[i][j] = matrix[i][k] + matrix[k][j];<br />              }<br />          }<br />        }<br />      }<br />      <br />      //printMatrix();<br />    }<br />  <br />    public void printMatrix(){<br />      for(int i=0; i&lt;this.size;i++){<br />        for(int j=0; j&lt;this.size;j++){<br />          System.out.print((matrix[i][j]==Integer.MAX_VALUE?"*":matrix[i][j]) +"\t");<br />        }<br />        System.out.println();<br />      }<br />    }<br />  }<br />  <br />  class Edge{<br />    int start;<br />    int end;<br />    int weight;<br />    <br />    public Edge(int start, int end, int weight){<br />      this.start =start;<br />      this.end =end;<br />      this.weight =weight;<br />    }<br />  }</p>
+		<span class="author">
+			
+			- 
+					Floyd Warshall
+				 <abbr class="timeago" title="2016-08-26T04:19:43.984940Z">August 26, 2016</abbr> <span><edit author_id="None" href="/editcomment?id=5752960307953664"></edit> | <a href="/flagcomment?id=5752960307953664">Flag</a>
+			
+			
+			<a onclick="javascript:insertReply('question', 5752960307953664, 5679897813975040);" class="replyButton" id="replyButton5752960307953664">Reply</a>
+			<div class="clearance"></div>			
+			
+		</span>
+		</div>
+	</div>
+	<div class="clearance"></div>
+</div>
+		
+			
+			<div id="insertReplyHere5752960307953664" style="margin-left: 70px; display: none;"></div>
+		
+<div class="clearance"></div>
+</div>
+
+	</div><div id="commentThread5653528325390336">
+    <div class="collapsedComment " id="collapsedComment5653528325390336" onclick="javascript:uncollapseComment(5653528325390336);" >Comment hidden because of low score. Click to expand.</div>
+<div class="uncollapsedComment" id="uncollapsedComment5653528325390336" >
+<a name="comment5653528325390336"></a>
+
+<div class="comment">
+
+	<div class="votesWrapper" id="votes5653528325390336">
+		
+		<div class="arrowUp authorHideNone" onclick="javascript:vote(1, 5653528325390336, 'comment')" id="arrowUp5653528325390336"></div>
+		<div class="arrowUpDisabled authorShowNone"  style="display: none;"></div>
+		<div class="votesNet" id="votesNet5653528325390336">0</div>
+		<div class="arrowDown  authorHideNone" onclick="javascript:vote(-1, 5653528325390336, 'comment')"  id="arrowDown5653528325390336"></div>
+		<div class="arrowDownDisabled authorShowNone" style="display: none;" id="arrowDown5653528325390336"></div>
+		<div class="votesCount" id="votesCount5653528325390336">of <span id="votesCountActual5653528325390336">0</span> vote</div>
+		<div class="clearance"></div>	
+		
+	</div>
+	<div class="commentMain">
+		<div class="commentBody" >
+			 		
+			<p>Floyd Warshall</p><p><code><pre class="language-java">import java.io.*;
+import java.util.*;
+
+/*
+ * To execute Java, please define "static void main" on a class
+ * named Solution.
+ *
+ * If you need more classes, simply define them inline.
+ */
+
+class Solution { 
+  public static void main(String[] args) {
+    Graph graph = new Graph(6);
+    graph.addEdge(0, 2, 4);
+    graph.addEdge(1, 2, 5);
+    graph.addEdge(2, 3, 1);
+    graph.addEdge(3, 4, 2);
+    graph.addEdge(3, 5, 3);
+    
+    //graph.printMatrix();
+    graph.floyd();
+    System.out.println(graph.getSum());
+  }
+}
+
+class Graph{
+    int size=0;
+    Map&lt;Integer, List&lt;Edge&gt;&gt; map = new HashMap&lt;&gt;();
+    int[][] matrix;
+    
+    public Graph(int size){
+      this.size = size;
+      matrix = new int[size][size];
+      
+      for(int i=0;i&lt;size;i++){
+        for(int j=0;j&lt;size;j++){
+          matrix[i][j] = Integer.MAX_VALUE;
+          
+          if(i==j) matrix[i][j] = 0;
+        }
+      }
+      //printMatrix();
+    }
+    
+    public void addEdge(int start, int end, int weight){
+      if(!map.containsKey(start)){
+        List&lt;Edge&gt; edges = new ArrayList&lt;&gt;();
+        map.put(start, edges);
+      }
+      
+      map.get(start).add(new Edge(start, end, weight));
+    }
+    
+    public int getSum(){
+      //return 1;
+      //printMatrix();
+      int sum = 0;
+      for(int i=0; i&lt;size;i++){
+        for(int j=0; j&lt;size;j++){
+          if(matrix[i][j] != Integer.MAX_VALUE){
+            sum += matrix[i][j];
+          }
+        }
+      }
+      
+      return sum/2;
+    }
+    
+    public void floyd(){
+      //printMatrix();
+      for(List&lt;Edge&gt; edges : map.values()){
+        for(Edge edge: edges){
+          //System.out.println(edge.start+","+edge.end);
+          matrix[edge.start][edge.end] = edge.weight;
+          matrix[edge.end][edge.start] = edge.weight;
+        }
+      }
+          
+      for(int k=0; k&lt;this.size;k++){
+        for(int i=0; i&lt;this.size;i++){
+          for(int j=0; j&lt;this.size;j++){
+              if(matrix[i][k] !=Integer.MAX_VALUE &amp;&amp; 
+                 matrix[k][j] !=Integer.MAX_VALUE &amp;&amp; 
+                 matrix[i][k] + matrix[k][j] &lt; matrix[i][j]){
+                matrix[i][j] = matrix[i][k] + matrix[k][j];
+              }
+          }
+        }
+      }
+      
+      //printMatrix();
+    }
+  
+    public void printMatrix(){
+      for(int i=0; i&lt;this.size;i++){
+        for(int j=0; j&lt;this.size;j++){
+          System.out.print((matrix[i][j]==Integer.MAX_VALUE?"*":matrix[i][j]) +"\t");
+        }
+        System.out.println();
+      }
+    }
+  }
+  
+  class Edge{
+    int start;
+    int end;
+    int weight;
+    
+    public Edge(int start, int end, int weight){
+      this.start =start;
+      this.end =end;
+      this.weight =weight;
+    }
+  }</pre></code></p>
+		<span class="author">
+			
+			- 
+					Floyd Warshall
+				 <abbr class="timeago" title="2016-08-26T04:20:18.756570Z">August 26, 2016</abbr> <span><edit author_id="None" href="/editcomment?id=5653528325390336"></edit> | <a href="/flagcomment?id=5653528325390336">Flag</a>
+			
+			
+			<a onclick="javascript:insertReply('question', 5653528325390336, 5679897813975040);" class="replyButton" id="replyButton5653528325390336">Reply</a>
+			<div class="clearance"></div>			
+			
+		</span>
+		</div>
+	</div>
+	<div class="clearance"></div>
+</div>
+		
+			
+			<div id="insertReplyHere5653528325390336" style="margin-left: 70px; display: none;"></div>
+		
+<div class="clearance"></div>
+</div>
+
+	</div><div id="commentThread5760919419224064">
+    <div class="collapsedComment " id="collapsedComment5760919419224064" onclick="javascript:uncollapseComment(5760919419224064);" >Comment hidden because of low score. Click to expand.</div>
+<div class="uncollapsedComment" id="uncollapsedComment5760919419224064" >
+<a name="comment5760919419224064"></a>
+
+<div class="comment">
+
+	<div class="votesWrapper" id="votes5760919419224064">
+		
+		<div class="arrowUp authorHideNone" onclick="javascript:vote(1, 5760919419224064, 'comment')" id="arrowUp5760919419224064"></div>
+		<div class="arrowUpDisabled authorShowNone"  style="display: none;"></div>
+		<div class="votesNet" id="votesNet5760919419224064">-1</div>
+		<div class="arrowDown  authorHideNone" onclick="javascript:vote(-1, 5760919419224064, 'comment')"  id="arrowDown5760919419224064"></div>
+		<div class="arrowDownDisabled authorShowNone" style="display: none;" id="arrowDown5760919419224064"></div>
+		<div class="votesCount" id="votesCount5760919419224064">of <span id="votesCountActual5760919419224064">1</span> vote</div>
+		<div class="clearance"></div>	
+		
+	</div>
+	<div class="commentMain">
+		<div class="commentBody" >
+			 		
+			<p>Use Floyd Warshall.</p>
+		<span class="author">
+			
+			- 
+					Anonymous
+				 <abbr class="timeago" title="2016-08-18T17:17:07.676270Z">August 18, 2016</abbr> <span><edit author_id="None" href="/editcomment?id=5760919419224064"></edit> | <a href="/flagcomment?id=5760919419224064">Flag</a>
+			
+			
+			<a onclick="javascript:insertReply('question', 5760919419224064, 5679897813975040);" class="replyButton" id="replyButton5760919419224064">Reply</a>
+			<div class="clearance"></div>			
+			
+		</span>
+		</div>
+	</div>
+	<div class="clearance"></div>
+</div>
+		
+			
+			<div id="insertReplyHere5760919419224064" style="margin-left: 70px; display: none;"></div>
+		
+<div class="clearance"></div>
+</div>
+
+</div>
+</div>
+<br/><br/>
+<script>
+    function validate() { return false; }
+</script>
+<div id="insertReplyHere5679897813975040">
+	<form method="post" onsubmit="javascript:return validate()">			
+    <div class="box" id="addCommentMain">
+        <div class="boxHeader">
+            <a id="textcommentlink" style="cursor:pointer; display: none; border-bottom: 1px dotted;">Add a Comment</a> <span id="textcommentnolink" >Add a Comment</span>
+        </div>
+        <div class="boxBody">
+			<div class="boxItem">
+            <div class="boxItemTitle">Name:</div>
+			<div class="boxItemValue">
+            
+                duskan <span class="changeName"><a href="/edituser">Change Name</a></span>
+            
+            </div>
+			</div>
+			
+			<div class="boxItem">
+			<br>
+<span class="warning">Writing Code? Surround your code with &#123;&#123;&#123; and &#125;&#125;&#125; to preserve whitespace.</span>
+			<br/><br/>
+			<div>
+            <textarea type="text" name="Comment" style="width: 95%; height: 100px;" class="commentRegex" onkeydown="return catchTab(this,event)" id="commentBox5679897813975040"></textarea>
+            
+			<input class="special" name="username" type="text" /> 
+			<div style="font-size: 1em;"><input type="checkbox" name="emailOnRespond" checked="true"></input> Email me when people comment.<br/><br/></div>
+            <input type="button" id="submitButton5679897813975040" value="Submit" id="btnSubmit" class="addCommentSubmit" style="float: left;" onclick="javascript:postComment('question', 5679897813975040, 5679897813975040)"></input> <span id="submitting5679897813975040" style="display: none;">Submitting...</span> 
+			<div class="clearance"></div>
+			</div>
+			</div>
+        </div> 
+    </div>
+	</form>
+</div>
+<script>
+
+var is_subscribed = false;
+
+function refreshSubscribedUI() {
+	if (is_subscribed) {
+		$('.is_unsubscribed_items').hide();
+		$('.is_subscribed_items').show();
+	} else {
+		$('.is_unsubscribed_items').show();
+		$('.is_subscribed_items').hide();		
+	}
+}
+
+refreshSubscribedUI();
+
+$(".subscribe_button").click(function() {
+	if (is_subscribed) {
+		var params = {'action': 'unsubscribe'};
+		$('.is_subscribed_items').hide();
+	} else {
+		var params = {'action': 'subscribe'};
+		$('.is_unsubscribed_items').hide();
+	}
+	$('.subscribe_loading_error').hide();
+	$('.subscribe_loading_items').show();
+	$('#ajax_vote_handler').load('/subscribe #subscribe', params, 
+    	function(response, status, xhr) {
+    		$('.subscribe_loading_items').hide();
+    		if (response == 'subscribed') {
+    			is_subscribed = true;
+    			refreshSubscribedUI();
+    		} else if (response == 'unsubscribed') {
+    			is_subscribed = false;
+    			refreshSubscribedUI();
+    		} else if (response == 'login') {
+    			window.location = _url;
+    		} else if (response == 'error') {
+    			$('.subscribe_loading_error').show();
+    		}
+		}
+	);
+});
+
+</script>
+
+		    
+			</div>
+			
+			<div id="sidebar" class="column grid_3" data-swiftype-index='false'>			
+				<div class="widget">
+					
+					<a id="add_question" href="/add">Add Question</a>
+					
+				</div>
+				<div class="widget smalltext" id="userbox">
+					<strong>CareerCup</strong> is the world's biggest and best source for software engineering interview preparation. <a href="/resources">See all our resources</a>.<br/>
+					<br/>		
+					<a href="http://tlk.io/careercup" target='_blank'>Open Chat in New Window</a>
+					<div id="tlkio" data-channel="careercup" style="width:100%;height:400px;"></div><script async src="http://tlk.io/embed.js" type="text/javascript"></script>
+					
+					<div class="newLink"> <a href="/helpcareercup">How Can You Help CareerCup?</a></div>
+					<br/>
+				
+					<div class="newLink"> <a href="https://careercup.wufoo.com/forms/cracking-the-interview-talk-notifier/">Find Out When Gayle / CareerCup / Cracking the Coding Interview is in Your City</a></div>
+					
+				</div>	
+				
+				
+				<div id="attributes-menu"></div>
+				
+				<div class="widget">
+					<h4>What's Going On</h4>
+					<iframe src="/activity" width="220" height="330" frameborder="0" border="1" scrolling="no" marginheight="0" marginwidth="0" allowtransparency="true"></iframe>
+				</div>				
+				
+				<div class="widget">
+					<a href="https://careercup.wufoo.com/forms/careercup-bug-report/">Report a Bug or Issue</a>
+				</div>
+		
+	
+				<div class="widget" id="disableChatText"></div>				
+			</div>
+			
+			</div>
+		</div>
+		<div id="services" class="row" data-swiftype-index='false'>
+			<div class="column grid_12"></div>
+			<div class="column grid_8">
+				<div class="row">
+					<div class="service column grid_4"><h3>Books</h3><p><script>writeBookLink("tgr", "Cracking the Tech Career")</script> is a comprehensive book on getting a job at a top tech company, while <script>writeBookLink("ctci", "Cracking the Coding Interview")</script> focuses on dev interviews and <script>writeBookLink("ctpmi", "Cracking the PM Interview")</script> does this for PMs.</p><p><a href="/book">Learn More</a></p></div>
+					<div class="service column grid_4"><h3>Videos</h3><p>CareerCup's interview videos give you a real-life look at technical interviews. In these unscripted videos, watch how other candidates handle tough questions and how the interviewer thinks about their performance.</p><p><a href="/video">Learn More</a></p></div>
+				</div>
+				<div class="row">
+					<div class="service column grid_4"><h3>Resume Review</h3><p> Most engineers make critical mistakes on their resumes -- we can 
+						fix your resume with our custom resume review service. And, we use fellow engineers as our resume reviewers, so you can be sure that we "get" what you're saying.</p> <p><a href="/resumereview">Learn More</a></p></div>
+					<div class="service column grid_4"><h3>Mock Interviews</h3><p>Our Mock Interviews will be conducted "in character" just like a real interview, and can focus on whatever topics you want. All our interviewers have worked for Microsoft, Google or Amazon, you know you'll get a true-to-life experience.</p><p><a href="/interview">Learn More</a></p></div>
+				</div>
+			</div>			
+			<div id="bookstars" class="column grid_4"><script>writeBookLink("ctci", "<img src='/images/bookstars.jpg'>", "")</script></div>
+		</div>
+		
+	</div><!-- end main -->
+	
+	<footer id="page_footer" data-swiftype-index='false'>
+		<div class="row">
+			<div class="column grid_3">
+				<h4>Information</h4>
+				<ul>
+					<li><a href="/about">Team, Contact &amp; About</a></li>
+					<li><a href="/salary">Salaries</a></li>
+					<li><a href="http://feeds.feedburner.com/Careercup">RSS</a></li>
+					<li><a href="http://www.crackingthecodinginterview.com/resources.html">Additional Resources</a></li>
+				</ul>
+			</div>
+			<div class="column grid_3">
+				<h4>Products</h4>
+				<ul>
+					<li><script>writeBookLink("ctci", "Cracking the Coding Interview")</script></li>
+					<li><script>writeBookLink("ctpmi", "Cracking the PM Interview")</script></li>
+					<li><script>writeBookLink("tgr", "Cracking the Tech Career")</script></li>
+					<li><a href="/video">Videos</a></li>
+				</ul>
+			</div>
+			<div class="column grid_3">
+				<h4>Services</h4>
+				<ul>
+					<li><a href="/interview">Mock Interviews</a></li>
+					<li><a href="/resumereview">Resume Review</a></li>
+					<li><a href="http://www.gayle.com/consulting/">Acquisition Interview Consulting</a></li>
+				</ul>
+			</div>
+			<div class="column grid_3">
+				<h4>Social</h4>
+				<ul>
+					<li><a href="http://www.facebook.com/careercup">CareerCup on Facebook</a></li>
+					<li><a href="http://www.facebook.com/ctcibook">CtCI on Facebook</a></li>
+					<li><a href="http://www.facebook.com/gayle">Gayle McDowell on Facebook</a></li>
+					<li><a href="http://www.twitter.com/careercup">CareerCup on Twitter</a></li>
+					<li><a href="http://www.twitter.com/gayle">Gayle on Twitter</a></li>
+					<li><a href="http://blog.careercup.com">CareerCup Blog</a></li>
+				</ul>
+			</div>
+			<div id="copyright" class="column grid_12">CareerCup.com &copy; 2016</div>
+	
+		</div> 
+	</footer>
+	<div id="ajax_vote_handler"></div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-315767-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+	
+	
+	
+		<script src="/js/prism.js"></script>
+<script type="text/javascript">
+var envoSn=79657;
+var envProtoType = (("https:" == document.location.protocol) ? "https://" : "http://");
+putChat();
+</script>
+
+		
+	<!--[if lt IE 7 ]>
+	<script src="js/libs/dd_belatedpng.js"></script>
+	<script> DD_belatedPNG.fix('img, .png_bg');</script>
+	<![endif]-->
+<script type="text/javascript">
+	var page_nav=new page_nav.dd("page_nav");
+	page_nav.init("page_nav","page_navhover");
+</script>
+<script>
+function refreshUserAdminInfo() {
+	showUserInfo(5686347301912576);
+	
+}
+
+$(document).ready(function() {
+	refreshUserAdminInfo();
+	
+		loadFavorites(5686347301912576, '2016-09-03 09:25:34.130820');
+		
+		var selector = "edit[author_id='5686347301912576']";
+		
+		$(selector).each(function(index) {
+			var v = $(this).attr("href");
+			var html = '<a href="' + v + '">Edit</a>';
+			$(this).replaceWith(html)
+		});
+		
+});
+
+$(document).ready(function() {
+	$("#attributes-menu").load("/controlattributesmenu");
+});
+
+jQuery(document).ready(function() {
+  jQuery("abbr.timeago").timeago();
+});
+</script>
+
+
+	
+</body>
+</html>
