@@ -6,6 +6,8 @@ var path = require('path');
 var cheerio = require("cheerio");
 var bunyan = require('bunyan');
 var log = bunyan.createLogger({name: 'careerDoor'});
+var _ = require("underscore");
+var util = require('util');
 
 
 /* GET home page. */
@@ -53,7 +55,7 @@ var link3 = 'https://www.careercup.com/question?id=5713658404405248';
 		            }
 		        }
 		}).then(page => {
-		    log.info(page.questionText);
+		    log.info(page);
 		    res.render('index', { title: 'Express' });
 
 		});
@@ -70,6 +72,46 @@ var ansExtractor = function(answerBody){
 	});
 	return fullHtml;
 };
+
+router.get('/qload', function(req, res, next) {
+	fs.readFile(path.join(__dirname, "..", 'sample.json'), 'utf8', function(err, contents) {
+		  if (err) throw err;
+		  var questionData = JSON.parse(contents);
+		  var questionImageUrl = "https://www.careercup.com/attributeimages/%s-interview-questions.png"
+		  _.each(questionData, function(questionPage){
+		  		_.each(questionPage.result.extractorData.data, function(question){
+		  			_.each(question.group, function(questionDetail){
+		  				var questionModel = {};
+		  				questionModel["Tags"] = [];
+		  				questionModel["Company Name"] = questionDetail["Tags links"][0].text;
+		  				questionModel["PostTime"] = questionDetail["Timeago value"][0].text;
+		  				questionModel["AnswersCount"] = questionDetail["Answers"][0].text;
+		  				questionModel["NetVotesCount"] = questionDetail["Votesnetquestion number"][0].text;
+		  				questionModel["TotalVotesCount"] = questionDetail["total votes"][0].text;
+
+		  				_.each(questionDetail["Entry link"], function(questionLink){
+		  					var qurl = questionLink.href;
+			  				var questionQuery = require('url').parse(qurl,true).query;
+			  				questionModel["Url"] = qurl;
+			  				questionModel["Text"] = questionLink.text;
+			  				questionModel["Id"] =  questionQuery.id;
+		  				});
+		  				_.each(questionDetail["Tags links"], function(tag, index){
+		  					if (index === 0){
+		  						// skip first index as it contains exact company name
+		  						questionModel["Company Logo"] = util.format(questionImageUrl, tag.text).toLowerCase();
+		  					} else {
+		  						questionModel["Tags"].push(tag.text);
+		  					}
+		  				});
+		  				log.info(questionModel);
+		  			});
+		  		});
+		  });
+		  res.send(questionData[0].url);
+	});
+});	
+
 
 /* GET home page. */
 router.get('/local', function(req, res, next) {
