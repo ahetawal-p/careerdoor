@@ -1,4 +1,1 @@
-sudo service mongod start
-
-mongo shell
-show dbs;
+Email for support : careerdoor.reader@gmail.com
